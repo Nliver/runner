@@ -415,7 +415,7 @@ namespace GitHub.Runner.Worker
 
         /// <summary>
         /// An embedded execution context shares the same record ID, record name, logger,
-        /// but NOT the cancellation token (just like contexts for workflow steps)
+        /// but NOT the cancellation token (just like workflow steps contexts - they don't share a token)
         /// </summary>
         public IExecutionContext CreateEmbeddedChild(
             string scopeName,

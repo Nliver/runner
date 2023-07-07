@@ -1,4 +1,4 @@
-using GitHub.DistributedTask.Expressions2.Sdk;
+﻿using GitHub.DistributedTask.Expressions2.Sdk;
 using GitHub.DistributedTask.ObjectTemplating;
 using GitHub.Runner.Common;
 using GitHub.Runner.Common.Util;

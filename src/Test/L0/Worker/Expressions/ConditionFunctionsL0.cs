@@ -209,6 +209,9 @@ namespace GitHub.Runner.Common.Tests.Worker.Expressions
             _templateContext = new TemplateContext();
             _templateContext.State[nameof(IExecutionContext)] = executionContext.Object;
 
+            var parent = new ExecutionContext();
+            executionContext.Setup(x=> x.Parent).Returns(parent);
+
             return executionContext;
         }
 

@@ -606,18 +606,18 @@ namespace GitHub.Runner.Worker
             if (timeout != null)
             {
                 _cancellationTokenSource.CancelAfter(timeout.Value);
-                m_timeoutSetAt = DateTime.UtcNow;
+                m_timeoutStartedAt = DateTime.UtcNow;
                 m_timeout = timeout.Value;
             }
         }
 
-        DateTime? m_timeoutSetAt;
+        DateTime? m_timeoutStartedAt;
         TimeSpan? m_timeout;
         public TimeSpan? GetRemainingTimeout()
         {
-            if (m_timeoutSetAt != null && m_timeout != null)
+            if (m_timeoutStartedAt != null && m_timeout != null)
             {
-                var elapsedSinceTimeoutSet = DateTime.UtcNow - m_timeoutSetAt.Value;
+                var elapsedSinceTimeoutSet = DateTime.UtcNow - m_timeoutStartedAt.Value;
                 var remainingTimeout = m_timeout.Value - elapsedSinceTimeoutSet;
                 if (remainingTimeout.Ticks > 0)
                 {
